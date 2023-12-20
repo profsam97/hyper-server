@@ -1,0 +1,40 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      =  "postgresql://postgres:proftoby@localhost:5432/hope"
+
+}
+model User {
+  id     Int     @id @default(autoincrement())
+  name   String
+  email  String  @unique
+  password String
+  points Int     // Assuming you store the points in the User model
+  orders Order[] // One-to-Many relationship with orders
+}
+
+model Book {
+  id          Int      @id @default(autoincrement())
+  title       String
+  writer      String
+  coverImage  String
+  points      Float
+  tags        String[]
+  orders Order[] // One-to-Many relationship with orders
+}
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  bookId      Int
+  customerId  Int
+  createdAt   DateTime @default(now())
+  canceled    Boolean  @default(false)
+
+  user  User  @relation(fields: [customerId], references: [id])
+  book  Book  @relation(fields: [bookId], references: [id])
+}
+
