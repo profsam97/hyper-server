@@ -15,8 +15,7 @@ yarn install
 ## Creating a database
 
 The project utilizes a local postgres db, however you can use a cloud offering such as amazon rds. 
-you need to provide the url, by editing the database source url, which can be found on line 8 in 
-the schema.prisma file.
+you need to provide the url, rename the example.env file to .env and input the url.
 
 ## Starting the Server
 Next, run the following command to start the server.
@@ -26,6 +25,10 @@ npm run dev
 # or
 yarn dev
 ```
+
+## Setting env
+
+
 ## View  the App.
 
 
