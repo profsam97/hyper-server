@@ -37,7 +37,6 @@ export const signin = async (req: Request, res: Response) => {
       console.log('User not found:', email);
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-    console.log(user.password)
 
     // Verify the provided password against the stored hashed password
     const isPasswordValid = await authUtils.verifyUserPassword(user.password, password);
