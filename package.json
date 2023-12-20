@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd -f ./config/dev.env ts-node-dev --respawn --transpile-only  ./src/app.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd  ts-node-dev --respawn --transpile-only  ./src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma:generate": "env-cmd  npx prisma generate",
+    "prisma:migrate": "env-cmd npx prisma migrate dev"
   },
   "keywords": [],
   "author": "",

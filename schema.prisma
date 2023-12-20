@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      =  "postgresql://postgres:proftoby@localhost:5432/hope"
+  url      =  env("DATABASE_URL")
 
 }
 model User {
